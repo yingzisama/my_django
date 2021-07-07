@@ -25,7 +25,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/ie-emulation-modes-warning.js"></script>
-
+    
   </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -82,7 +82,7 @@
                         <div class="tab-pane" id="panel-104120">
                         </div>
                     </div>
-                </div>
+                </div >
                 <table id = "table1" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
@@ -119,7 +119,20 @@
                                 {{ case_management.test_case_name}}
                             </td>
                             <td contentEditable="true"> 
-                                {{ case_management.test_case_level}}
+                                <!-- Split button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn btn-default">P0</button>
+                                    <button type="button" class="btn btn btn-default btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                    <li><a href="#">P0</a></li>
+                                    <li><a href="#">P1</a></li>
+                                    <li><a href="#">P2</a></li>
+                                    <li><a href="#">P3</a></li>
+                                    </ul>
+                                </div>
                             </td>
                             <td contentEditable="true">
                                 {{ case_management.test_case_preposition}}
@@ -130,14 +143,18 @@
                             <td contentEditable="true">
                                 {{ case_management.test_case_expected}}
                             </td>
-                            <td contentEditable="true">
-                                {{ case_management.test_case_results}}
+                            <td>
+                                <form>
+                                    <input type="radio" name="sex" value="pass"> pass
+                                    <input type="radio" name="sex" value="fail"> fail
+                                    <input type="radio" name="sex" value="block"> block
+                                </form>
+                            </td>
+                            <td>
+                                
                             </td>
                             <td contentEditable="true">
-                                {{ case_management.test_case_man}}
-                            </td>
-                            <td contentEditable="true">
-                                备注
+                                <input type="text">
                             </td>
                         </tr>
                     </tbody>
