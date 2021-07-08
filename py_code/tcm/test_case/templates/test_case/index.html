@@ -1,180 +1,166 @@
-
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/favicon.ico">
-    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/dashboard/">
-
-    <title>tc用例平台</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/examples/dashboard/dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/ie-emulation-modes-warning.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试用例管理系统</title>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+ 
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
     
-  </head>
+</head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            </button>
-            <a class="navbar-brand" href="#">&nbsp; &nbsp; &nbsp; 测试用例管理平台</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">工具</a></li>
-              <li><a href="#">设置</a></li>
-              <li><a href="#">联系人</a></li>
-              <li><a href="#">帮助</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-              <input type="text" class="form-control" placeholder="搜索">
-            </form>
-          </div>
-        </div>
-      </nav>
-  
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">用例管理</a></li>
-              <li><a href="#">全部用例</a></li>
-              <li><a href="#">音乐项目</a></li>
-              <li><a href="#">游戏项目</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">版本用例集合</h1>
-            <div class="table-responsive">
-                <div class="tabbable">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                             <a href="#panel-857428" data-toggle="tab">测试用例</a>
-                        </li>
-                        <li>
-                             <a href="#panel-104120" data-toggle="tab">用例执行</a>
-                        </li>
-                        <li>
-                            <a href="#panel-104120" data-toggle="tab">用例评审</a>
-                       </li>
-                    </ul>
-                    <br />
-                    <br />
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="panel-857428">
-                        </div>
-                        <div class="tab-pane" id="panel-104120">
-                        </div>
-                    </div>
-                </div >
-                <table id = "table1" class="table table-bordered table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th>
-                                用例名
-                            </th>
-                            <th>
-                                用例级别
-                            </th>
-                            <th>
-                                前置条件
-                            </th>
-                            <th>
-                                执行步骤
-                            </th>
-                            <th>
-                                预期结果
-                            </th>
-                            <th>
-                                测试结果
-                            </th>
-                            <th>
-                                执行人
-                            </th>
-                            <th>
-                                备注
-                            </th>
-                        </tr>
-                    </thead>
-                    {% for case_management in case_management_list %}
-                    <tbody>
-                        <tr>
-                            <td contentEditable="true">
-                                {{ case_management.test_case_name}}
-                            </td>
-                            <td contentEditable="true"> 
-                                <!-- Split button -->
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn btn-default">P0</button>
-                                    <button type="button" class="btn btn btn-default btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">P0</a></li>
-                                    <li><a href="#">P1</a></li>
-                                    <li><a href="#">P2</a></li>
-                                    <li><a href="#">P3</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td contentEditable="true">
-                                {{ case_management.test_case_preposition}}
-                            </td>
-                            <td contentEditable="true">
-                                {{ case_management.test_case_step}}
-                            </td>
-                            <td contentEditable="true">
-                                {{ case_management.test_case_expected}}
-                            </td>
-                            <td>
-                                <form>
-                                    <input type="radio" name="sex" value="pass"> pass
-                                    <input type="radio" name="sex" value="fail"> fail
-                                    <input type="radio" name="sex" value="block"> block
-                                </form>
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td contentEditable="true">
-                                <input type="text">
-                            </td>
-                        </tr>
-                    </tbody>
-                    {% endfor %}
-                </table>  <button type="button" class="btn btn-default btn-block btn-primary"><span class="glyphicon glyphicon-plus " aria-hidden="true"></span>  新增用例</button>
-            </div>
-        </div>
-    </div>
-  
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/vendor/jquery.min.js"><\/script>')</script>
-      <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/dist/js/bootstrap.min.js"></script>
-      <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-      <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/vendor/holder.min.js"></script>
-      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.10/assets/js/ie10-viewport-bug-workaround.js"></script>
-
     
-</body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+          <div class="layui-logo layui-hide-xs layui-bg-black">测试用例管理系统</div>
+          <!-- 头部区域（可配合layui 已有的水平导航） -->
+          <ul class="layui-nav layui-layout-left">
+            <!-- 移动端显示 -->
+            <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+              <i class="layui-icon layui-icon-spread-left"></i>
+            </li>
+            
+            <li class="layui-nav-item layui-hide-xs"><a href="">用例管理</a></li>
+            <li class="layui-nav-item layui-hide-xs"><a href="">用例执行</a></li>
+            <li class="layui-nav-item layui-hide-xs"><a href="">用例评审</a></li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">用例集</a>
+              <dl class="layui-nav-child">
+                <dd><a href="">用例集1</a></dd>
+                <dd><a href="">用例集2</a></dd>
+                <dd><a href="">用例集3</a></dd>
+              </dl>
+            </li>
+          </ul>
+          <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+              <a href="javascript:;">
+                <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                用户名
+              </a>
+              <dl class="layui-nav-child">
+                <dd><a href="">我的信息</a></dd>
+                <dd><a href="">设置</a></dd>
+                <dd><a href="">登出</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+              <a href="javascript:;">
+                <i class="layui-icon layui-icon-more-vertical"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="layui-side layui-bg-black">
+          <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+              <li class="layui-nav-item">
+                <a class="" href="javascript:;">用例集1</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="javascript:;">用例1</a></dd>
+                  <dd><a href="javascript:;">用例2</a></dd>
+                  <dd><a href="javascript:;">用例3</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">用例集2</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="javascript:;">用例1</a></dd>
+                  <dd><a href="javascript:;">用例2</a></dd>
+                  <dd><a href="">超链接</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item"><a href="javascript:;">冒烟测试</a></li>
+              <li class="layui-nav-item"><a href="">我的任务</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="layui-body">
+          <!-- 内容主体区域 -->
+          <table class="layui-table" lay-even lay-skin="line" lay-size="lg" >
+            <colgroup>
+              <col width="150">
+              <col width="100">
+              <col width="200">
+              <col width="200">
+              <col width="100">
+              <col width="50">
+              <col width="100">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>用例名</th>
+                <th>用例级别</th>
+                <th>前置条件</th>
+                <th>执行步骤</th>
+                <th>预期结果</th>
+                <th>测试结果</th>
+                <th>备注</th>
+              </tr> 
+            </thead>
+            {% for case_management in case_management_list %}
+            <tbody>
+              <tr>
+                <td>{{ case_management.test_case_name}}</td>
+                <td>{{ case_management.test_case_level}}</td>
+                <td>{{ case_management.test_case_preposition}}</td>
+                <td>{{ case_management.test_case_step}}</td>
+                <td>{{ case_management.test_case_expected}}</td>
+                <td>                   
+                    <form>
+                    <input type="radio" name="sex" value="pass"> pass<br />
+                    <input type="radio" name="sex" value="fail"> fail<br />
+                    <input type="radio" name="sex" value="block"> block<br />
+                    </form>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+          <button type="button" class="layui-btn layui-btn-fluid"><i class="layui-icon">&#xe654;</i>新增用例</button>
+        </div>
+        
+        <div class="layui-footer">
+          <!-- 底部固定区域 -->
+          在每一个细节中，用心与你沟通
+        </div>
+      </div>
+      <script>
+      //JS 
+      layui.use(['element', 'layer', 'util'], function(){
+        var element = layui.element
+        ,layer = layui.layer
+        ,util = layui.util
+        ,$ = layui.$;
+        
+        //头部事件
+        util.event('lay-header-event', {
+          //左侧菜单事件
+          menuLeft: function(othis){
+            layer.msg('展开左侧菜单的操作', {icon: 0});
+          }
+          ,menuRight: function(){
+            layer.open({
+              type: 1
+              ,content: '<div style="padding: 15px;">还没想好放啥</div>'
+              ,area: ['260px', '100%']
+              ,offset: 'rt' //右上角
+              ,anim: 5
+              ,shadeClose: true
+            });
+          }
+        });
+        
+      });
+      </script>
+      </body>
 </html>
