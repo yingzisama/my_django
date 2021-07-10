@@ -11,7 +11,18 @@
  
     <!-- 引入 layui.js -->
     <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
-    
+    <style>
+      .input-text
+      {
+          border: 1px solid #C3CED9;
+          border-radius: 5px 5px 5px 5px;
+          font-size: 14px;
+          height: 50px;
+          line-height: 31px;
+          margin-right: 10px;
+          padding: 0;
+      }
+  </style>
 </head>
 <body>
     
@@ -85,33 +96,22 @@
         
         <div class="layui-body">
           <!-- 内容主体区域 -->
-          <table class="layui-table" lay-even lay-skin="line" lay-size="lg" >
-            <colgroup>
-              <col width="150">
-              <col width="100">
-              <col width="200">
-              <col width="200">
-              <col width="100">
-              <col width="50">
-              <col width="100">
-              <col>
-            </colgroup>
+          <table class="layui-table" lay-even lay-skin="row" lay-size="lg" >
             <thead>
               <tr>
                 <th>用例名</th>
-                <th>用例级别</th>
                 <th>前置条件</th>
                 <th>执行步骤</th>
                 <th>预期结果</th>
                 <th>测试结果</th>
                 <th>备注</th>
+                <th>操作</th>
               </tr> 
-            </thead>
-            {% for case_management in case_management_list %}
-            <tbody>
+            </thead>           
+            <tbody id="mytable">
+              {% for case_management in case_management_list %}
               <tr>
                 <td>{{ case_management.test_case_name}}</td>
-                <td>{{ case_management.test_case_level}}</td>
                 <td>{{ case_management.test_case_preposition}}</td>
                 <td>{{ case_management.test_case_step}}</td>
                 <td>{{ case_management.test_case_expected}}</td>
@@ -123,11 +123,12 @@
                     </form>
                 </td>
                 <td></td>
+                <td></td>
               </tr>
+              {% endfor %}
             </tbody>
-            {% endfor %}
           </table>
-          <button type="button" class="layui-btn layui-btn-fluid"><i class="layui-icon">&#xe654;</i>新增用例</button>
+          <button type="button" class="layui-btn layui-btn-fluid" id="123">新增用例</button>
         </div>
         
         <div class="layui-footer">
@@ -137,12 +138,16 @@
       </div>
       <script>
       //JS 
-      layui.use(['element', 'layer', 'util'], function(){
+      layui.use(['element', 'layer', 'util','jquery'], function(){
         var element = layui.element
         ,layer = layui.layer
         ,util = layui.util
         ,$ = layui.$;
         
+        $('#123').click(function(){
+          $("#mytable").append(
+            "<tr><td><form><input type='text' class='input-text'></form></td><td><form><input type='text' class='input-text'></form></td><td><form><input type='text' class='input-text'></form></td><td><form><input type='text' class='input-text'></form></td><td><form><input type='radio' name='sex' value='pass'> pass<br /><input type='radio' name='sex' value='fail'> fail<br /><input type='radio' name='sex' value='block'> block<br /></form></td><td><form><input type='text' class='input-text'></form></td><td></td></tr>")
+        })
         //头部事件
         util.event('lay-header-event', {
           //左侧菜单事件
@@ -162,6 +167,7 @@
         });
         
       });
+      
       </script>
       </body>
 </html>
